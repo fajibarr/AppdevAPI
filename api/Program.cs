@@ -10,6 +10,11 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddCors(o => o.AddPolicy("Blazor", p =>
+    p.WithOrigins("https://localhost:7079")
+     .AllowAnyHeader()
+     .AllowAnyMethod()));
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -19,5 +24,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("Blazor");
 app.MapControllers();
 app.Run();

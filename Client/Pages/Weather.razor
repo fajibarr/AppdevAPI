@@ -1,0 +1,21 @@
+﻿@page "/reviewstest"
+@inject HttpClient Http
+
+<h3>Reviews test</h3>
+<pre>@json</pre>
+
+@code {
+    private string? json;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            json = await Http.GetStringAsync("api/review");
+        }
+        catch (Exception ex)
+        {
+            json = ex.Message;
+        }
+    }
+}

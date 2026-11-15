@@ -1,0 +1,171 @@
+﻿/* ---------- Page background ---------- */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../images/cafebackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* ---------- Card ---------- */
+.auth-card {
+    position: relative;
+    isolation: isolate;
+    width: 450px;
+    max-width: 100%;
+    min-height: 700px;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #EDE0DC;
+    border: 2px solid #EDE0DC;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+    .auth-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url('../images/CreamBG.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+/* ---------- Log in / Register toggle ---------- */
+.auth-toggle {
+    position: relative;
+    display: flex;
+    width: 350px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #916C61;
+    border-radius: 10px;
+    background: #F8F1EE;
+    overflow: hidden;
+}
+
+.auth-toggle-slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    border-radius: 7px;
+    background: #916C61;
+    transition: transform 0.35s ease;
+}
+
+    .auth-toggle-slider.is-register {
+        transform: translateX(100%);
+    }
+
+.auth-toggle-option {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: #916C61;
+    transition: color 0.35s ease;
+}
+
+    .auth-toggle-option:hover {
+        color: #916C61;
+        text-decoration: none;
+    }
+
+    .auth-toggle-option.active,
+    .auth-toggle-option.active:hover {
+        color: white;
+    }
+
+/* ---------- Text and logo ---------- */
+.auth-title {
+    text-align: center;
+    margin: 1.2rem 0 0.3rem;
+}
+
+.auth-subtitle {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.auth-logo {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 150px;
+    height: auto;
+}
+
+/* ---------- Form ---------- */
+.auth-field {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+    .auth-field label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+.auth-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: center;
+}
+
+.auth-button {
+    display: block;
+    width: 150px;
+    height: 35px;
+    margin: 1.5rem auto 0;
+    background: #916C61;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+    .auth-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+.auth-error {
+    margin-top: 1rem;
+    text-align: center;
+    color: #a32d2d;
+    font-size: 0.85rem;
+}
+
+.auth-card .validation-errors {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-size: 0.85rem;
+}

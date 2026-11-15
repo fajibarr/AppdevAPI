@@ -1,0 +1,36 @@
+﻿@page "/login"
+@inject AuthService Auth
+@inject NavigationManager Nav
+
+<AuthCard Title="WELCOME BACK!" Subtitle="Log in to your account">
+    <EditForm Model="model" OnValidSubmit="HandleLogin">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="auth-field">
+            <label for="email">Email</label>
+            <InputText id="email" type="email" class="auth-input" placeholder="Enter your email" @bind-Value="model.Email" />
+        </div>
+        <div class="auth-field">
+            <label for="password">Password</label>
+            <InputText id="password" type="password" class="auth-input" placeholder="Enter your password" @bind-Value="model.Password" />
+        </div>
+
+        <button class="auth-button" type="submit" disabled="@busy">Log In</button>
+        <p class="auth-error">@error</p>
+    </EditForm>
+</AuthCard>
+
+@code {
+    private LoginModel model = new();
+    private string? error;
+    private bool busy;
+
+    private async Task HandleLogin()
+    {
+        busy = true; error = null;
+        error = await Auth.LoginAsync(model);
+        busy = false;
+        if (error == null) Nav.NavigateTo("/");
+    }
+}

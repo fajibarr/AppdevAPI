@@ -1,0 +1,23 @@
+﻿<div class="auth-page">
+    <div class="auth-card">
+        <div class="auth-toggle">
+            <div class="auth-toggle-slider @(IsRegister ? "is-register" : "")"></div>
+            <NavLink class="auth-toggle-option" href="login">Log In</NavLink>
+            <NavLink class="auth-toggle-option" href="register">Register</NavLink>
+        </div>
+
+        <h1 class="auth-title">@Title</h1>
+        <p class="auth-subtitle">@Subtitle</p>
+
+        <a href=""><img class="auth-logo" src="images/logofull.png" alt="CafeScape logo" /></a>
+
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter] public bool IsRegister { get; set; }
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public string Subtitle { get; set; } = "";
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

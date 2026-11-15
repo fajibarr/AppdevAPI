@@ -1,0 +1,44 @@
+﻿@page "/register"
+@inject AuthService Auth
+@inject NavigationManager Nav
+
+<AuthCard IsRegister="true" Title="JOIN US!" Subtitle="Create your account">
+    <EditForm Model="model" OnValidSubmit="HandleRegister">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="auth-field">
+            <label for="username">Username</label>
+            <InputText id="username" class="auth-input" placeholder="Choose a username" @bind-Value="model.Username" />
+        </div>
+        <div class="auth-field">
+            <label for="email">Email</label>
+            <InputText id="email" type="email" class="auth-input" placeholder="Enter your email" @bind-Value="model.Email" />
+        </div>
+        <div class="auth-field">
+            <label for="address">Address</label>
+            <InputText id="address" class="auth-input" placeholder="Enter your address" @bind-Value="model.Address" />
+        </div>
+        <div class="auth-field">
+            <label for="password">Password</label>
+            <InputText id="password" type="password" class="auth-input" placeholder="Create a password" @bind-Value="model.Password" />
+        </div>
+
+        <button class="auth-button" type="submit" disabled="@busy">Register</button>
+        <p class="auth-error">@error</p>
+    </EditForm>
+</AuthCard>
+
+@code {
+    private RegisterModel model = new();
+    private string? error;
+    private bool busy;
+
+    private async Task HandleRegister()
+    {
+        busy = true; error = null;
+        error = await Auth.RegisterAsync(model);
+        busy = false;
+        if (error == null) Nav.NavigateTo("/login");
+    }
+}
