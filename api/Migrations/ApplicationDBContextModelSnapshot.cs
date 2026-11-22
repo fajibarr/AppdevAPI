@@ -102,49 +102,31 @@ namespace api.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Symbol")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Korea",
-                            Email = "emailniSeungmin@gmail.com",
-                            Password = "BiasKoSiSeungmin32",
-                            Username = "Seungmin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "Korea",
-                            Email = "emailniIU@gmail.com",
-                            Password = "GandaMoIU",
-                            Username = "IU"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "Korea",
-                            Email = "emailniDO@gmail.com",
-                            Password = "KyungsooBliss",
-                            Username = "Kyungsoo"
-                        });
                 });
 
             modelBuilder.Entity("api.Models.UserReview", b =>
@@ -168,6 +150,7 @@ namespace api.Migrations
 
                     b.Property<string>("Review")
                         .IsRequired()
+                        .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("UserId")

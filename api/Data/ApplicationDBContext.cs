@@ -20,6 +20,7 @@ namespace api.Data
         public DbSet<CoffeeShop> CoffeeShops { get; set; }
 
         // DB population with dummy data
+        /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -28,6 +29,6 @@ namespace api.Data
                 new User { Id = 002, Email = "emailniIU@gmail.com", Address = "Korea", Password = "GandaMoIU", Username = "IU" },
                 new User { Id = 003, Email = "emailniDO@gmail.com", Address = "Korea", Password = "KyungsooBliss", Username = "Kyungsoo" }
             );
-        }
+        } */
     }
 }

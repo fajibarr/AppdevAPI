@@ -181,3 +181,4 @@ C:\Users\SDO_2026\Desktop\PROG IDE\Projects\APITest\api\obj\Debug\net10.0\api.pd
 C:\Users\SDO_2026\Desktop\PROG IDE\Projects\APITest\api\obj\Debug\net10.0\api.genruntimeconfig.cache
 C:\Users\SDO_2026\Desktop\PROG IDE\Projects\APITest\api\obj\Debug\net10.0\ref\api.dll
 C:\Users\SDO_2026\Desktop\PROG IDE\Projects\APITest\api\bin\Debug\net10.0\Bogus.dll
+C:\Users\SDO_2026\Desktop\PROG IDE\Projects\APITest\api\obj\Debug\net10.0\api.sourcelink.json
